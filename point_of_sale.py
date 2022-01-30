@@ -2,7 +2,7 @@
 
 def on_barcode(barcode):
     global amount
-    if barcode != "" and barcode[-1] == " ":
+    if barcode != "" and barcode[-1] != "\n":
         amount = "invalid"
     else:
         try:
