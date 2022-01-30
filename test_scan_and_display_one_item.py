@@ -13,6 +13,6 @@ def test_input_non_number_characters():
     on_barcode("junk")
     assert last_text_displayed() == "invalid"
 
-def test_another_valid_input():
-    on_barcode("54321\n")
-    assert last_text_displayed() == "$10.50"
+def test_string_with_trailing_space_invalid_input():
+    on_barcode("54321 ")
+    assert last_text_displayed() == "invalid"
