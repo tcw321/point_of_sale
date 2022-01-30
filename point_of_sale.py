@@ -1,7 +1,10 @@
 
+amount = "$10.50"
 
 def on_barcode(barcode):
-    pass
+    global amount
+    if barcode == "":
+        amount = "invalid"
 
 def last_text_displayed():
-    return "$10.50"
+    return amount
