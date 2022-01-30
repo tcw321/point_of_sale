@@ -8,3 +8,7 @@ def test_valid_input():
 def test_invalid_input_blank_string():
     on_barcode("")
     assert last_text_displayed() == "invalid"
+
+def test_input_non_number_characters():
+    on_barcode("junk")
+    assert last_text_displayed() == "invalid"
