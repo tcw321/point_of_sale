@@ -1,6 +1,9 @@
 
 
 class SalesSystem:
+    def __init__(self, pricesByBarcode):
+        self.pricesByBarcode = pricesByBarcode
+
     def on_barcode(self, barcode, pricesByBarcode={}):
         global display
         if barcode != "" and barcode[-1] != "\n":
@@ -9,7 +12,7 @@ class SalesSystem:
             try:
                 barcode_value = int(barcode)
                 try:
-                    display = pricesByBarcode[str(barcode_value)]
+                    display = self.pricesByBarcode[str(barcode_value)]
                 except:
                     display = "No price found"
             except:
