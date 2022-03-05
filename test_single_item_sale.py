@@ -17,6 +17,6 @@ def test_second_valid_barcode_displays_valid_amount(my_point_of_sale):
     my_point_of_sale.on_barcode("54321\n")
     assert last_text_displayed() == "$8.64"
 
-def test_valid_barcode_with_no_price():
-    on_barcode("9999\n")
+def test_valid_barcode_with_no_price(my_point_of_sale):
+    my_point_of_sale.on_barcode("9999\n")
     assert last_text_displayed() == "No price found"
