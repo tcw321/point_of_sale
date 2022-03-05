@@ -7,12 +7,9 @@ def on_barcode(barcode, catalog={}):
     else:
         try:
             barcode_value = int(barcode)
-            if barcode_value == 12345:
-               display = "$10.50"
+            try:
                display = catalog[str(barcode_value)]
-            elif barcode_value == 54321:
-               display = "$8.64"
-            else:
+            except:
                display = "No price found"
         except:
             display = "invalid"
