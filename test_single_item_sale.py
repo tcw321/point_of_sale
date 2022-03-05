@@ -9,12 +9,12 @@ def pricesByBarcode():
 def my_point_of_sale(pricesByBarcode):
     return SalesSystem(pricesByBarcode)
 
-def test_valid_barcode_displays_valid_amount(my_point_of_sale, pricesByBarcode):
+def test_valid_barcode_displays_valid_amount(my_point_of_sale):
     my_point_of_sale.on_barcode("12345\n")
     assert last_text_displayed() == "$10.50"
 
-def test_second_valid_barcode_displays_valid_amount(pricesByBarcode):
-    on_barcode("54321\n", pricesByBarcode)
+def test_second_valid_barcode_displays_valid_amount(my_point_of_sale):
+    my_point_of_sale.on_barcode("54321\n")
     assert last_text_displayed() == "$8.64"
 
 def test_valid_barcode_with_no_price():
