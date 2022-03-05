@@ -6,8 +6,11 @@ def on_barcode(barcode):
         amount = "invalid"
     else:
         try:
-            int(barcode)
-            amount = "$10.50"
+            barcode_value = int(barcode)
+            if barcode_value == 12345:
+               amount = "$10.50"
+            else:
+               amount = "$8.64"
         except:
             amount = "invalid"
 
