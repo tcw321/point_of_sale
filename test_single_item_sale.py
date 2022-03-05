@@ -5,6 +5,10 @@ from point_of_sale import *
 def catalog():
     return {"12345": "$10.50", "54321": "$8.64"}
 
+@pytest.fixture
+def my_point_of_sale(catalog):
+    return SalesSystem(catalog)
+
 def test_valid_barcode_displays_valid_amount(catalog):
     on_barcode("12345\n", catalog)
     assert last_text_displayed() == "$10.50"

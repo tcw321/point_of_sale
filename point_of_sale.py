@@ -1,5 +1,8 @@
 
 
+class SalesSystem:
+    pass
+
 def on_barcode(barcode, catalog={}):
     global display
     if barcode != "" and barcode[-1] != "\n":
