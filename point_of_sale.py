@@ -1,20 +1,20 @@
 
 
 def on_barcode(barcode):
-    global amount
+    global display
     if barcode != "" and barcode[-1] != "\n":
-        amount = "invalid"
+        display = "invalid"
     else:
         try:
             barcode_value = int(barcode)
             if barcode_value == 12345:
-               amount = "$10.50"
+               display = "$10.50"
             elif barcode_value == 54321:
-               amount = "$8.64"
+               display = "$8.64"
             else:
-               amount = "No price found"
+               display = "No price found"
         except:
-            amount = "invalid"
+            display = "invalid"
 
 def last_text_displayed():
-    return amount
+    return display
