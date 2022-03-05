@@ -9,8 +9,10 @@ def on_barcode(barcode):
             barcode_value = int(barcode)
             if barcode_value == 12345:
                amount = "$10.50"
-            else:
+            elif barcode_value == 54321:
                amount = "$8.64"
+            else:
+               amount = "No price found"
         except:
             amount = "invalid"
 
