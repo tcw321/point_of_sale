@@ -1,6 +1,6 @@
 
 
-def on_barcode(barcode):
+def on_barcode(barcode, catalog={}):
     global display
     if barcode != "" and barcode[-1] != "\n":
         display = "invalid"
