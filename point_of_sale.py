@@ -3,7 +3,7 @@
 class SalesSystem:
     pass
 
-def on_barcode(barcode, catalog={}):
+def on_barcode(barcode, pricesByBarcode={}):
     global display
     if barcode != "" and barcode[-1] != "\n":
         display = "invalid"
@@ -11,7 +11,7 @@ def on_barcode(barcode, catalog={}):
         try:
             barcode_value = int(barcode)
             try:
-               display = catalog[str(barcode_value)]
+               display = pricesByBarcode[str(barcode_value)]
             except:
                display = "No price found"
         except:
