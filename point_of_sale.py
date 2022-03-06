@@ -1,10 +1,16 @@
 
 class Display:
-    pass
+
+    def setText(self, text):
+        self.text = text
+
+    def text(self):
+        return self.text
 
 class SalesSystem:
-    def __init__(self, pricesByBarcode, display2):
+    def __init__(self, pricesByBarcode, display):
         self.pricesByBarcode = pricesByBarcode
+        self.display2 = display
 
     def on_barcode(self, barcode, pricesByBarcode={}):
         global display
@@ -20,6 +26,6 @@ class SalesSystem:
             except:
                 display = "invalid"
 
-    def last_text_displayed(self):
+    def display(self):
         return display
 
