@@ -20,5 +20,6 @@ class SalesSystem:
             except:
                 display = "invalid"
 
-def last_text_displayed():
-    return display
+    def last_text_displayed(self):
+        return display
+
