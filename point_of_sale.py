@@ -1,10 +1,13 @@
 
 class Display:
 
+    def __init__(self):
+        self.text = ""
+
     def setText(self, text):
         self.text = text
 
-    def text(self):
+    def displayText(self):
         return self.text
 
 class SalesSystem:
@@ -13,19 +16,18 @@ class SalesSystem:
         self.display2 = display
 
     def on_barcode(self, barcode, pricesByBarcode={}):
-        global display
         if barcode != "" and barcode[-1] != "\n":
-            display = "invalid"
+            self.display2.setText("invalid")
         else:
             try:
                 barcode_value = int(barcode)
                 try:
-                    display = self.pricesByBarcode[str(barcode_value)]
+                    self.display2.setText(self.pricesByBarcode[str(barcode_value)])
                 except:
-                    display = "No price found"
+                    self.display2.setText("No price found")
             except:
-                display = "invalid"
+                self.display2.setText("invalid")
 
     def display(self):
-        return display
+        return self.display2.displayText()
 
