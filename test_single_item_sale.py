@@ -13,11 +13,11 @@ def my_display():
 def my_point_of_sale(pricesByBarcode, my_display):
     return SalesSystem(pricesByBarcode, my_display)
 
-def test_valid_barcode_displays_valid_amount(my_point_of_sale, pricesByBarcode):
+def test_valid_barcode_displays_valid_amount(my_point_of_sale, pricesByBarcode, my_display):
     for k in pricesByBarcode:
       my_point_of_sale.on_barcode(k+"\n")
-      assert my_point_of_sale.display() == pricesByBarcode[k]
+      assert my_display.displayText() == pricesByBarcode[k]
 
-def test_valid_barcode_with_no_price(my_point_of_sale):
+def test_valid_barcode_with_no_price(my_point_of_sale, my_display):
     my_point_of_sale.on_barcode("9999\n")
-    assert my_point_of_sale.display() == "No price found"
+    assert my_display.displayText() == "No price found"
