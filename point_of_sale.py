@@ -1,7 +1,9 @@
 
+class Display:
+    pass
 
 class SalesSystem:
-    def __init__(self, pricesByBarcode):
+    def __init__(self, pricesByBarcode, display2):
         self.pricesByBarcode = pricesByBarcode
 
     def on_barcode(self, barcode, pricesByBarcode={}):

@@ -7,7 +7,8 @@ def pricesByBarcode():
 
 @pytest.fixture
 def my_point_of_sale(pricesByBarcode):
-    return SalesSystem(pricesByBarcode)
+    display = Display();
+    return SalesSystem(pricesByBarcode, display)
 
 def test_valid_barcode_displays_valid_amount(my_point_of_sale, pricesByBarcode):
     for k in pricesByBarcode:

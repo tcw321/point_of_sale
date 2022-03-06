@@ -3,7 +3,8 @@ from point_of_sale import *
 
 @pytest.fixture
 def my_point_of_sale():
-    return SalesSystem({})
+    display = Display();
+    return SalesSystem({}, display)
 
 def test_invalid_input_blank_string(my_point_of_sale):
     my_point_of_sale.on_barcode("")
