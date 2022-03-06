@@ -6,9 +6,12 @@ def pricesByBarcode():
     return {"12345": "$10.50", "54321": "$8.64"}
 
 @pytest.fixture
-def my_point_of_sale(pricesByBarcode):
-    display = Display();
-    return SalesSystem(pricesByBarcode, display)
+def my_display():
+    return Display();
+
+@pytest.fixture
+def my_point_of_sale(pricesByBarcode, my_display):
+    return SalesSystem(pricesByBarcode, my_display)
 
 def test_valid_barcode_displays_valid_amount(my_point_of_sale, pricesByBarcode):
     for k in pricesByBarcode:

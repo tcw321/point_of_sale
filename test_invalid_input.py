@@ -2,9 +2,12 @@ import pytest
 from point_of_sale import *
 
 @pytest.fixture
-def my_point_of_sale():
-    display = Display();
-    return SalesSystem({}, display)
+def my_display():
+    return Display();
+
+@pytest.fixture
+def my_point_of_sale(my_display):
+    return SalesSystem({}, my_display)
 
 def test_invalid_input_blank_string(my_point_of_sale):
     my_point_of_sale.on_barcode("")
