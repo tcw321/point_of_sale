@@ -28,6 +28,3 @@ class SalesSystem:
             except:
                 self.display2.setText("invalid")
 
-    def display(self):
-        return self.display2.displayText()
-
