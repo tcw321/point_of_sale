@@ -2,10 +2,7 @@
 class Display:
 
     def __init__(self):
-        self.text = ""
-
-    def setText(self, text):
-        self.text = text
+        self.text = "No items scanned"
 
     def getText(self):
         return self.text
@@ -36,7 +33,6 @@ class SalesSystem:
                 barcode_value = int(barcode)
                 try:
                     self.item_prices.append(self.pricesByBarcode[str(barcode_value)])
-                    self.display.setText(self.pricesByBarcode[str(barcode_value)])
                     self.display.setCurrentPrice(self.pricesByBarcode[str(barcode_value)])
                 except:
                     self.display.notFoundState()
@@ -44,11 +40,7 @@ class SalesSystem:
                 self.display.invalidState()
 
     def total(self):
-        if self.display.getText() == "":
-            self.display.setText("No items scanned")
-        elif self.display.getText() == "No price found":
-            self.display.setText("No price found")
-        else:
+        if len(self.item_prices) > 0:
             sum = 0
             for x in self.item_prices:
                 sum += x
