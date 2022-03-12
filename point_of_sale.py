@@ -7,7 +7,7 @@ class Display:
     def setText(self, text):
         self.text = text
 
-    def displayText(self):
+    def getText(self):
         return self.text
 
 class SalesSystem:
@@ -31,9 +31,9 @@ class SalesSystem:
                 self.display.setText("invalid")
 
     def total(self):
-        if self.display.displayText() == "":
+        if self.display.getText() == "":
             self.display.setText("No items scanned")
-        elif self.display.displayText() == "No price found":
+        elif self.display.getText() == "No price found":
             self.display.setText("No known item scanned")
         else:
             sum = 0

@@ -16,24 +16,24 @@ def my_point_of_sale(pricesByBarcode, my_display):
 def test_purchase_one_item(my_point_of_sale, pricesByBarcode, my_display):
     my_point_of_sale.on_barcode("12345\n")
     my_point_of_sale.total()
-    assert my_display.displayText() == "Total: $10.51"
+    assert my_display.getText() == "Total: $10.51"
 
 def test_purchase_another_one_item(my_point_of_sale, pricesByBarcode, my_display):
     my_point_of_sale.on_barcode("54321\n")
     my_point_of_sale.total()
-    assert my_display.displayText() == "Total: $8.64"
+    assert my_display.getText() == "Total: $8.64"
 
 def test_total_with_no_items(my_point_of_sale, pricesByBarcode, my_display):
     my_point_of_sale.total()
-    assert my_display.displayText() == "No items scanned"
+    assert my_display.getText() == "No items scanned"
 
 def test_total_after_scanning_unknown_item(my_point_of_sale, pricesByBarcode, my_display):
     my_point_of_sale.on_barcode("99999\n")
     my_point_of_sale.total()
-    assert my_display.displayText() == "No known item scanned"
+    assert my_display.getText() == "No known item scanned"
 
 def test_purchase_two_items(my_point_of_sale, pricesByBarcode, my_display):
     my_point_of_sale.on_barcode("12345\n")
     my_point_of_sale.on_barcode("54321\n")
     my_point_of_sale.total()
-    assert my_display.displayText() == "Total: $19.15"
+    assert my_display.getText() == "Total: $19.15"
