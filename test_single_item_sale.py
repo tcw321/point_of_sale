@@ -3,7 +3,7 @@ from point_of_sale import *
 
 @pytest.fixture
 def pricesByBarcode():
-    return {"12345": "$10.50", "54321": "$8.64"}
+    return {"12345": 10.50, "54321": 8.64}
 
 @pytest.fixture
 def my_display():

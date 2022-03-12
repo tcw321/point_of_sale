@@ -38,5 +38,5 @@ class SalesSystem:
         else:
             sum = 0
             for x in self.item_prices:
-                sum += float(x[1:])
+                sum += x
             self.display.setText("Total: ${}".format(sum))
