@@ -29,4 +29,4 @@ class SalesSystem:
                 self.display.setText("invalid")
 
     def total(self):
-        self.display.setText("Total: $10.50")
+        self.display.setText("Total: " + self.display.displayText())

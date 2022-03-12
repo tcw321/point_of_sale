@@ -17,3 +17,8 @@ def test_purchase_one_item(my_point_of_sale, pricesByBarcode, my_display):
     my_point_of_sale.on_barcode("12345\n")
     my_point_of_sale.total()
     assert my_display.displayText() == "Total: $10.50"
+
+def test_purchase_another_one_item(my_point_of_sale, pricesByBarcode, my_display):
+    my_point_of_sale.on_barcode("54321\n")
+    my_point_of_sale.total()
+    assert my_display.displayText() == "Total: $8.64"
