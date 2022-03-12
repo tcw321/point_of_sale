@@ -16,6 +16,12 @@ class Display:
     def notFoundState(self):
         self.text = "No price found"
 
+    def setCurrentPrice(self, price):
+        self.text = price
+
+    def setTotal(self, totalPrice):
+        self.text = totalPrice
+
 class SalesSystem:
     def __init__(self, pricesByBarcode, display):
         self.pricesByBarcode = pricesByBarcode
@@ -31,6 +37,7 @@ class SalesSystem:
                 try:
                     self.item_prices.append(self.pricesByBarcode[str(barcode_value)])
                     self.display.setText(self.pricesByBarcode[str(barcode_value)])
+                    self.display.setCurrentPrice(self.pricesByBarcode[str(barcode_value)])
                 except:
                     self.display.notFoundState()
             except:
@@ -45,4 +52,4 @@ class SalesSystem:
             sum = 0
             for x in self.item_prices:
                 sum += x
-            self.display.setText("Total: ${}".format(sum))
+            self.display.setTotal("Total: ${}".format(sum))
