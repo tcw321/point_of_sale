@@ -14,6 +14,7 @@ class SalesSystem:
     def __init__(self, pricesByBarcode, display):
         self.pricesByBarcode = pricesByBarcode
         self.display = display
+        self.item_prices = []
 
     def on_barcode(self, barcode, pricesByBarcode={}):
         if barcode != "" and barcode[-1] != "\n":
@@ -22,6 +23,7 @@ class SalesSystem:
             try:
                 barcode_value = int(barcode)
                 try:
+                    self.item_prices.append(self.pricesByBarcode[str(barcode_value)])
                     self.display.setText(self.pricesByBarcode[str(barcode_value)])
                 except:
                     self.display.setText("No price found")
@@ -34,4 +36,7 @@ class SalesSystem:
         elif self.display.displayText() == "No price found":
             self.display.setText("No known item scanned")
         else:
-            self.display.setText("Total: " + self.display.displayText())
+            sum = 0
+            for x in self.item_prices:
+                sum += float(x[1:])
+            self.display.setText("Total: ${}".format(sum))
