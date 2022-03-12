@@ -16,8 +16,11 @@ class Display:
     def setCurrentPrice(self, price):
         self.text = price
 
-    def setTotal(self, totalPrice):
+    def setOldTotal(self, totalPrice):
         self.text = totalPrice
+
+    def setTotal(self, totalPrice):
+        self.text = "Total: ${}".format(totalPrice)
 
 class SalesSystem:
     def __init__(self, pricesByBarcode, display):
@@ -44,4 +47,4 @@ class SalesSystem:
             sum = 0
             for x in self.item_prices:
                 sum += x
-            self.display.setTotal("Total: ${}".format(sum))
+            self.display.setTotal(sum)
