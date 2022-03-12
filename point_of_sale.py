@@ -13,6 +13,9 @@ class Display:
     def invalidState(self):
         self.text = "invalid"
 
+    def notFoundState(self):
+        self.text = "No price found"
+
 class SalesSystem:
     def __init__(self, pricesByBarcode, display):
         self.pricesByBarcode = pricesByBarcode
@@ -29,7 +32,7 @@ class SalesSystem:
                     self.item_prices.append(self.pricesByBarcode[str(barcode_value)])
                     self.display.setText(self.pricesByBarcode[str(barcode_value)])
                 except:
-                    self.display.setText("No price found")
+                    self.display.notFoundState()
             except:
                 self.display.invalidState()
 
