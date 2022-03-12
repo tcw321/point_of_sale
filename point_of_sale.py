@@ -4,7 +4,7 @@ class Display:
     def __init__(self):
         self.text = "No items scanned"
 
-    def getText(self):
+    def view(self):
         return self.text
 
     def invalidState(self):
