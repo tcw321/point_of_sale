@@ -29,4 +29,7 @@ class SalesSystem:
                 self.display.setText("invalid")
 
     def total(self):
-        self.display.setText("Total: " + self.display.displayText())
+        if self.display.displayText() == "":
+            self.display.setText("No items scanned")
+        else:
+            self.display.setText("Total: " + self.display.displayText())
