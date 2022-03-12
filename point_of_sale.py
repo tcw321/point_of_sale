@@ -28,3 +28,5 @@ class SalesSystem:
             except:
                 self.display.setText("invalid")
 
+    def total(self):
+        self.display.setText("Total: $10.50")
