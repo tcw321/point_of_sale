@@ -47,7 +47,7 @@ class SalesSystem:
         if self.display.getText() == "":
             self.display.setText("No items scanned")
         elif self.display.getText() == "No price found":
-            self.display.setText("No known item scanned")
+            self.display.setText("No price found")
         else:
             sum = 0
             for x in self.item_prices:
