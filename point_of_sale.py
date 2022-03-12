@@ -20,7 +20,7 @@ class Display:
         self.text = totalPrice
 
     def setTotal(self, totalPrice):
-        self.text = "Total: ${}".format(totalPrice)
+        self.text = "Total: ${:.2f}".format(totalPrice)
 
 class SalesSystem:
     def __init__(self, pricesByBarcode, display):
