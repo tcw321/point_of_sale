@@ -31,5 +31,7 @@ class SalesSystem:
     def total(self):
         if self.display.displayText() == "":
             self.display.setText("No items scanned")
+        elif self.display.displayText() == "No price found":
+            self.display.setText("No known item scanned")
         else:
             self.display.setText("Total: " + self.display.displayText())

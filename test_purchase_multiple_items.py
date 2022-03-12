@@ -26,3 +26,8 @@ def test_purchase_another_one_item(my_point_of_sale, pricesByBarcode, my_display
 def test_total_with_no_items(my_point_of_sale, pricesByBarcode, my_display):
     my_point_of_sale.total()
     assert my_display.displayText() == "No items scanned"
+
+def test_total_after_scanning_unknown_item(my_point_of_sale, pricesByBarcode, my_display):
+    my_point_of_sale.on_barcode("99999\n")
+    my_point_of_sale.total()
+    assert my_display.displayText() == "No known item scanned"
