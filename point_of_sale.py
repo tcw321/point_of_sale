@@ -10,6 +10,9 @@ class Display:
     def getText(self):
         return self.text
 
+    def invalidState(self):
+        self.text = "invalid"
+
 class SalesSystem:
     def __init__(self, pricesByBarcode, display):
         self.pricesByBarcode = pricesByBarcode
@@ -18,7 +21,7 @@ class SalesSystem:
 
     def on_barcode(self, barcode, pricesByBarcode={}):
         if barcode != "" and barcode[-1] != "\n":
-            self.display.setText("invalid")
+            self.display.invalidState()
         else:
             try:
                 barcode_value = int(barcode)
@@ -28,7 +31,7 @@ class SalesSystem:
                 except:
                     self.display.setText("No price found")
             except:
-                self.display.setText("invalid")
+                self.display.invalidState()
 
     def total(self):
         if self.display.getText() == "":
